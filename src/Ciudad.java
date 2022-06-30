@@ -1,5 +1,3 @@
-package trabajofinal;
-
 public class Ciudad {
 
     //Atributos
