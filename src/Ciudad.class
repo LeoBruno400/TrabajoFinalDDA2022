@@ -63,5 +63,8 @@ public class Ciudad {
         String cadena = "Nombre: " + this.getNombre() + "\nPoblacion: " + this.getPoblacion() + "\nLatitud: " + this.getLongitud() + "\nLongitud: " + this.getLongitud();
         return cadena;
     }
-    
+
+    public int compareTo(Ciudad city2) {
+        return this.nombre.compareTo(city2.getNombre());
+    }
 }
