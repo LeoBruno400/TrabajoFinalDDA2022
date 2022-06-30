@@ -17,7 +17,8 @@ public class testCiudad {
     }
 
     public static void cargarArrCiudades(Ciudad[] arrCiudad, int longArr){
-        String lineaTxt, txtRuta = "F:/Universidad/2-SEGUNDO CUATRIMESTRE TPS/DESARROLLO DE ALGORITMOS/TrabajoFinal/TrabajoFinalDDA/src/ciudades.txt";
+        String lineaTxt;
+        final String txtRuta = "F:/Universidad/2-SEGUNDO CUATRIMESTRE TPS/DESARROLLO DE ALGORITMOS/TrabajoFinal/TrabajoFinalDDA/src/ciudades.txt";
         int i;
         try {
             BufferedReader buff = new BufferedReader(new FileReader(txtRuta));
