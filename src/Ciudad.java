@@ -1,4 +1,3 @@
-import java.awt.Graphics;
 public class Ciudad {
 
     //Atributos
@@ -59,11 +58,47 @@ public class Ciudad {
     }
     
     public String toString(){
-        String cadena = "Nombre: " +"|"+ this.getNombre() +"|"+ " Poblacion: " +"|"+ this.getPoblacion() +"|"+ " Latitud: " +"|"+ this.getLongitud() +"|"+ " Longitud: " +"|"+ this.getLongitud() +"|";
+        String cadena = "Ciudad: " + this.getNombre() +" |"+ " Poblacion: " + this.getPoblacion() +" |"+ " Latitud: " + this.getLongitud() +" |"+ " Longitud: " + this.getLongitud() +" |";
         return cadena;
     }
 
     public int compareTo(Ciudad city2) {
         return this.nombre.compareTo(city2.getNombre());
     }
+
+    public void copiarArregloInsercion(Ciudad[] arrCiudad, char tipoOrden){
+
+    }
+
+    /*
+    public static void insercion(int[] arr) {
+        int i, j, aux;
+        int n = arr.length - 1;
+
+        for (i = 1; i <= n; i++) {
+            aux = arr[i];
+            j = i;
+            while (j > 0 && arr[j - 1] > aux) {
+                arr[j] = arr[j - 1];
+                j = j - 1;
+            }
+            arr[j] = aux;
+        }
+    }
+
+    public static void insercionInvertida(int[] arr) {
+        int i, j, aux;
+        int n = arr.length - 1;
+
+        for (i = 1; i <= n; i++) {
+            aux = arr[i];
+            j = i;
+            while (j > 0 && arr[j - 1] < aux) {
+                arr[j] = arr[j - 1];
+                j = j - 1;
+            }
+            arr[j] = aux;
+        }
+    }
+     */
 }
