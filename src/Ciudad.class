@@ -60,7 +60,7 @@ public class Ciudad {
     }
     
     public String toString(){
-        String cadena = "Nombre: " + this.getNombre() + "\nPoblacion: " + this.getPoblacion() + "\nLatitud: " + this.getLongitud() + "\nLongitud: " + this.getLongitud();
+        String cadena = "Nombre: " + this.getNombre() + "Poblacion: " + this.getPoblacion() + "Latitud: " + this.getLongitud() + "Longitud: " + this.getLongitud();
         return cadena;
     }
 
