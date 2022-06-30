@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 public class Ciudad {
 
     //Atributos
@@ -58,7 +59,7 @@ public class Ciudad {
     }
     
     public String toString(){
-        String cadena = "Nombre: " + this.getNombre() + "Poblacion: " + this.getPoblacion() + "Latitud: " + this.getLongitud() + "Longitud: " + this.getLongitud();
+        String cadena = "Nombre: " +"|"+ this.getNombre() +"|"+ " Poblacion: " +"|"+ this.getPoblacion() +"|"+ " Latitud: " +"|"+ this.getLongitud() +"|"+ " Longitud: " +"|"+ this.getLongitud() +"|";
         return cadena;
     }
 
