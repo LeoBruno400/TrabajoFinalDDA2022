@@ -10,7 +10,7 @@ public class testCiudad {
         int longArr = arrCiudades.length;
         final String txtRuta = "F:/Universidad/2-SEGUNDO CUATRIMESTRE TPS/DESARROLLO DE ALGORITMOS/TrabajoFinal/TrabajoFinalDDA/src/ciudades.txt"; // Ruta del archivo                                                                                                                           // archivo
         cargarArrCiudades(arrCiudades, longArr, txtRuta); // Carga el arreglo con el objeto Ciudad
-        Ciudad[] copy = Ciudad.copiarArreglo(arrCiudades, 10); // Hace una copia del arreglo Original
+        Ciudad[] copy = Ciudad.copiarArreglo(arrCiudades, longArr); // Hace una copia del arreglo Original
         String letra = verificacionLetra();
         Ciudad.ordenamientoInsercion(copy, letra); // Ordena el arreglo lexicograficamente segun lo pida el usuario
         showText(letra, copy); // Muestra por pantalla el arreglo segun su ordenamiento
