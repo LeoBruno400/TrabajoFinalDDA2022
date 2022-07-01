@@ -76,7 +76,7 @@ public class Ciudad {
     }
 
     public static Ciudad[] copiarArreglo(Ciudad[] arrCiudad, int longArr) {
-        Ciudad[] copia = new Ciudad[longArr];
+        Ciudad[] copia = new Ciudad[longArr]; //El arreglo entra por parametro por si el usuario decide copiar menos ciudades
         System.arraycopy(arrCiudad, 0, copia, 0, longArr);
         return copia;
     }
