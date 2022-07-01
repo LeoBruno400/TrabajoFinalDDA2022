@@ -1,12 +1,12 @@
 public class Ciudad {
 
-    //Atributos
+    // Atributos
     private String nombre;
     private int poblacion;
     private float latitud;
     private float longitud;
 
-    //Constructoras
+    // Constructoras
     public Ciudad(String elNombre, int laPoblacion, float laLatitud, float laLongitud) {
         this.nombre = elNombre;
         this.poblacion = laPoblacion;
@@ -14,7 +14,7 @@ public class Ciudad {
         this.longitud = laLongitud;
     }
 
-    //Constructoras con valores default
+    // Constructoras con valores default
     public Ciudad(String elNombre) {
         this.nombre = elNombre;
         this.poblacion = 0;
@@ -22,7 +22,7 @@ public class Ciudad {
         this.longitud = 0;
     }
 
-    //Observadoras
+    // Observadoras
     public String getNombre() {
         return this.nombre;
     }
@@ -38,67 +38,75 @@ public class Ciudad {
     public float getLongitud() {
         return this.longitud;
     }
-    
-    //Modificadoras
-    public void setPoblacion(int laPoblacion){
+
+    // Modificadoras
+    public void setPoblacion(int laPoblacion) {
         this.poblacion = laPoblacion;
     }
-    
-    public void setLatitud(float laLatitud){
+
+    public void setLatitud(float laLatitud) {
         this.latitud = laLatitud;
     }
-    
-    public void setLongitud(float laLongitud){
+
+    public void setLongitud(float laLongitud) {
         this.longitud = laLongitud;
     }
-    
-    //Propias del tipo
-    public boolean equals(Ciudad objeto){
+
+    // Propias del tipo
+    public boolean equals(Ciudad objeto) {
         return (this.nombre.equalsIgnoreCase(objeto.getNombre()));
     }
-    
-    public String toString(){
-        String cadena = "Ciudad: " + this.getNombre() +" |"+ " Poblacion: " + this.getPoblacion() +" |"+ " Latitud: " + this.getLongitud() +" |"+ " Longitud: " + this.getLongitud() +" |";
+
+    public String toString() {
+        String cadena = "Ciudad: " + this.getNombre() + " |" + " Poblacion: " + this.getPoblacion() + " |"
+                + " Latitud: " + this.getLongitud() + " |" + " Longitud: " + this.getLongitud() + " |";
         return cadena;
     }
 
-    public int compareTo(Ciudad city2) {
+    public int compareToCiudad(Ciudad city2) {
         return this.nombre.compareTo(city2.getNombre());
+        // Retorna -1 si esta antes
+        // Retorna 1 si esta despues
+        // Retorna 0 si son iguales
+
+        // Ejemplo:
+        // a.compareTo(b), Retorna -1 porque "a" esta antes que "b"
+        // b.compareTo(a), Retorna 1 porque "b" esta despues que "a"
+        // b.compareTo(b), Retorna 0 porque son iguales
     }
 
-    public void copiarArregloInsercion(Ciudad[] arrCiudad, char tipoOrden){
-
+    public static Ciudad[] copiarArreglo(Ciudad[] arrCiudad) {
+        int longArr = arrCiudad.length;
+        Ciudad[] copia = new Ciudad[longArr];
+        System.arraycopy(arrCiudad, 0, copia, 0, longArr);
+        return copia;
     }
 
-    /*
-    public static void insercion(int[] arr) {
-        int i, j, aux;
-        int n = arr.length - 1;
+    public static void ordenamientoInsercion(Ciudad[] arrCiudad, String ordenTipo) {
+        int i, j;
+        Ciudad aux;
+        int n = arrCiudad.length;
 
-        for (i = 1; i <= n; i++) {
-            aux = arr[i];
-            j = i;
-            while (j > 0 && arr[j - 1] > aux) {
-                arr[j] = arr[j - 1];
-                j = j - 1;
+        if (ordenTipo.equals("a")) {
+            for (i = 1; i < n; i++) {
+                aux = arrCiudad[i];
+                j = i;
+                while (j > 0 && arrCiudad[j - 1].compareToCiudad(aux) < 0) {
+                    arrCiudad[j] = arrCiudad[j - 1];
+                    j--;
+                }
+                arrCiudad[j] = aux;
             }
-            arr[j] = aux;
+        } else {
+            for (i = 1; i < n; i++) {
+                aux = arrCiudad[i];
+                j = i;
+                while (j > 0 && arrCiudad[j - 1].compareToCiudad(aux) > 0) {
+                    arrCiudad[j] = arrCiudad[j - 1];
+                    j--;
+                }
+                arrCiudad[j] = aux;
+            }
         }
     }
-
-    public static void insercionInvertida(int[] arr) {
-        int i, j, aux;
-        int n = arr.length - 1;
-
-        for (i = 1; i <= n; i++) {
-            aux = arr[i];
-            j = i;
-            while (j > 0 && arr[j - 1] < aux) {
-                arr[j] = arr[j - 1];
-                j = j - 1;
-            }
-            arr[j] = aux;
-        }
-    }
-     */
 }
