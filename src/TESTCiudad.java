@@ -78,7 +78,7 @@ public class testCiudad {
         
         do {
             do{
-                System.out.println("Ingrese el numero de la ciudad, segun la posicion del arreglo");
+                System.out.println("Ingrese el numero de la ciudad que desea abreviar, segun su posicion en el arreglo");
                 numUsuario = sc.nextInt();
                 if (numUsuario <= longArr) {
                     incorrecto = false;
@@ -106,9 +106,10 @@ public class testCiudad {
         // Muestra el arreglo de ciudades por pantalla
         int longArr = arrCiudad.length;
         for (int i = 0; i < longArr; i++) {
-            System.out.println(arrCiudad[i].toString());
+            System.out.println("Posicion: "+ (i+1) +" "+ arrCiudad[i].toString());
         }
         System.out.println();
     }
 
+    
 }
