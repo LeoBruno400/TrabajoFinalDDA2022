@@ -11,9 +11,10 @@ public class testCiudad {
         final String txtRuta = "F:/Universidad/2-SEGUNDO CUATRIMESTRE TPS/DESARROLLO DE ALGORITMOS/TrabajoFinal/TrabajoFinalDDA/src/ciudades.txt"; //Ruta del archivo
         cargarArrCiudades(arrCiudades, longArr, txtRuta); // Carga el arreglo con el objeto Ciudad
         Ciudad[] copy = Ciudad.copiarArreglo(arrCiudades); // Hace una copia del arreglo Original  
-        //String letra = verificacionLetra();      
-        //Ciudad.ordenamientoInsercion(copy, letra);// Ordena el arreglo lexicograficamente segun lo pida el usuario
-        showAbreviatura(copy);
+        String letra = verificacionLetra();      
+        Ciudad.ordenamientoInsercion(copy, letra); // Ordena el arreglo lexicograficamente segun lo pida el usuario
+        showArr(copy);
+        showAbreviaturaNombre(copy); //Dado el nombre de una ciudad generar su abreviatura
 
     }
 
@@ -57,6 +58,15 @@ public class testCiudad {
         } while (incorrecto);
         sc.close();
         return metodoTipo;
+    } 
+
+    public static void showAbreviaturaNombre(Ciudad[] arrCiudad){
+        int i, largo, longArr = arrCiudad.length;
+        for (i = 0; i < longArr; i++) {
+            largo = arrCiudad[i].getNombre().replaceAll(" ", "").length() - 1;
+            //largo = nombre de la ciudad en la posicion i <- se le quita los espacios <- se calcula su longitud - 1
+            System.out.println(arrCiudad[i].abreviatura(largo));
+        }
     }
 
     public static void showArr(Ciudad[] arrCiudad) {
@@ -64,17 +74,6 @@ public class testCiudad {
         int longArr = arrCiudad.length;
         for (int i = 0; i < longArr; i++) {
             System.out.println(arrCiudad[i].toString());
-        }
-    }
-
-    public static void showAbreviatura(Ciudad[] arrCiudad){
-        int i, largo, longArr = arrCiudad.length;
-        String nombre;
-        for (i = 0; i < longArr; i++) {
-            nombre = arrCiudad[i].getNombre();
-            largo = nombre.length()-1;
-            System.out.println(largo);
-            System.out.println(arrCiudad[i].abreviatura(largo));
         }
     }
 }

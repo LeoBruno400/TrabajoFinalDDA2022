@@ -87,7 +87,7 @@ public class Ciudad {
         Ciudad aux;
         int n = arrCiudad.length;
 
-        if (ordenTipo.equals("a")) { //Metodo de ordenamiento por Insercion Original
+        if (ordenTipo.equals("a")) { // Metodo de ordenamiento por Insercion Original
             for (i = 1; i < n; i++) {
                 aux = arrCiudad[i];
                 j = i;
@@ -97,7 +97,7 @@ public class Ciudad {
                 }
                 arrCiudad[j] = aux;
             }
-        } else { //Metodo de ordenamiento por Insercion Invertida
+        } else { // Metodo de ordenamiento por Insercion Invertida
             for (i = 1; i < n; i++) {
                 aux = arrCiudad[i];
                 j = i;
@@ -110,19 +110,18 @@ public class Ciudad {
         }
     }
 
-    public String abreviatura(int posicion){
-        String newCadena;
+    public String abreviatura(int posicion) {
+        String newCadena = "";
         String nombre = this.getNombre().replaceAll(" ", "");
-        char caracter = nombre.toLowerCase().charAt(posicion);
+        char caracter;
 
-        if(posicion >= 0){
-            if(caracter == 'a' || caracter == 'e' || caracter == 'i' || caracter == 'o' || caracter == 'u'){
+        if (posicion >= 0) {
+            caracter = nombre.toLowerCase().charAt(posicion); //Para evitar comparar vocales en mayuscula
+            if (caracter == 'a' || caracter == 'e' || caracter == 'i' || caracter == 'o' || caracter == 'u') {
                 newCadena = abreviatura(posicion - 1);
-            }else{
+            } else {
                 newCadena = abreviatura(posicion - 1) + nombre.charAt(posicion);
             }
-        }else{
-            newCadena = "";
         }
         return newCadena;
     }
