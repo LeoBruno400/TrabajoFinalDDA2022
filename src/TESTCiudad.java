@@ -10,7 +10,7 @@ public class testCiudad {
         int longArr = arrCiudades.length;
         final String txtRuta = "F:/Universidad/2-SEGUNDO CUATRIMESTRE TPS/DESARROLLO DE ALGORITMOS/TrabajoFinal/TrabajoFinalDDA/src/ciudades.txt"; //Ruta del archivo
         cargarArrCiudades(arrCiudades, longArr, txtRuta); // Carga el arreglo con el objeto Ciudad
-        Ciudad[] copy = Ciudad.copiarArreglo(arrCiudades); // Hace una copia del arreglo Original  
+        Ciudad[] copy = Ciudad.copiarArreglo(arrCiudades, longArr); // Hace una copia del arreglo Original  
         String letra = verificacionLetra();      
         Ciudad.ordenamientoInsercion(copy, letra); // Ordena el arreglo lexicograficamente segun lo pida el usuario
         showArr(copy);
@@ -61,7 +61,7 @@ public class testCiudad {
     } 
 
     public static void showAbreviaturaNombre(Ciudad[] arrCiudad){
-        int i, largo, longArr = arrCiudad.length;
+        int i, largo, longArr = arrCiudad.length - 1;
         for (i = 0; i < longArr; i++) {
             largo = arrCiudad[i].getNombre().replaceAll(" ", "").length() - 1;
             //largo = nombre de la ciudad en la posicion i <- se le quita los espacios <- se calcula su longitud - 1

@@ -75,8 +75,7 @@ public class Ciudad {
         // b.compareTo(b), Retorna 0 porque son iguales
     }
 
-    public static Ciudad[] copiarArreglo(Ciudad[] arrCiudad) {
-        int longArr = arrCiudad.length;
+    public static Ciudad[] copiarArreglo(Ciudad[] arrCiudad, int longArr) {
         Ciudad[] copia = new Ciudad[longArr];
         System.arraycopy(arrCiudad, 0, copia, 0, longArr);
         return copia;
