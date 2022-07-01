@@ -13,7 +13,6 @@ public class testCiudad {
         Ciudad[] copy = Ciudad.copiarArreglo(arrCiudades); // Hace una copia del arreglo Original  
         String letra = verificacionLetra();      
         Ciudad.ordenamientoInsercion(copy, letra);// Ordena el arreglo lexicograficamente segun lo pida el usuario
-        showArr(copy);
     }
 
     public static void cargarArrCiudades(Ciudad[] arrCiudad, int longArr, String txtRuta) {
@@ -65,4 +64,5 @@ public class testCiudad {
             System.out.println(arrCiudad[i].toString());
         }
     }
+    
 }

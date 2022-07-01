@@ -87,7 +87,7 @@ public class Ciudad {
         Ciudad aux;
         int n = arrCiudad.length;
 
-        if (ordenTipo.equals("a")) {
+        if (ordenTipo.equals("a")) { //Metodo de ordenamiento por Insercion Original
             for (i = 1; i < n; i++) {
                 aux = arrCiudad[i];
                 j = i;
@@ -97,7 +97,7 @@ public class Ciudad {
                 }
                 arrCiudad[j] = aux;
             }
-        } else {
+        } else { //Metodo de ordenamiento por Insercion Invertida
             for (i = 1; i < n; i++) {
                 aux = arrCiudad[i];
                 j = i;
