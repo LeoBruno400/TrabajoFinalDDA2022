@@ -109,4 +109,21 @@ public class Ciudad {
             }
         }
     }
+
+    public String abreviatura(int posicion){
+        String newCadena;
+        String nombre = this.getNombre().replaceAll(" ", "");
+        char caracter = nombre.toLowerCase().charAt(posicion);
+
+        if(posicion >= 0){
+            if(caracter == 'a' || caracter == 'e' || caracter == 'i' || caracter == 'o' || caracter == 'u'){
+                newCadena = abreviatura(posicion - 1);
+            }else{
+                newCadena = abreviatura(posicion - 1) + nombre.charAt(posicion);
+            }
+        }else{
+            newCadena = "";
+        }
+        return newCadena;
+    }
 }
