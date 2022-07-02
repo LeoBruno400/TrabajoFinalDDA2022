@@ -8,7 +8,7 @@ public class testCiudad {
     public static void main(String[] args) {
         Ciudad[] arrCiudades = new Ciudad[100];
         int longArr = arrCiudades.length;
-        // Ruta del archivo
+        // Ruta del archivo, cambiar segun donde se encuente.
         final String txtRuta = "F:/Universidad/2-SEGUNDO CUATRIMESTRE TPS/DESARROLLO DE ALGORITMOS/TrabajoFinal/TrabajoFinalDDA/src/ciudades.txt";
         cargarArrCiudades(arrCiudades, longArr, txtRuta); // Carga el arreglo con el objeto Ciudad
         menu(arrCiudades);
