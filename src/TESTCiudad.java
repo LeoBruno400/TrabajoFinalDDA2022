@@ -116,6 +116,7 @@ public class testCiudad {
                 System.out.println("\nERROR. NUMERO INVALIDO. Intentelo Nuevamente");
             }
         } while (invalido || !salir);
+        System.out.println("\n----------------------------------FIN DEL PROGRAMA----------------------------------");
     }
 
     public static String verificacionLetra() {
@@ -191,7 +192,7 @@ public class testCiudad {
         int longArr = arrCiudad.length;
         System.out.println();
         for (int i = 0; i < longArr; i++) {
-            System.out.println("Posicion: " + (i + 1) + " " + arrCiudad[i].toString());
+            System.out.println("Posicion: " + "|" + (i + 1) + "|" + " " + arrCiudad[i].toString());
         }
         System.out.println();
     }

@@ -90,7 +90,7 @@ public class Ciudad {
             for (i = 1; i < n; i++) {
                 aux = arrCiudad[i];
                 j = i;
-                while (j > 0 && arrCiudad[j - 1].compareToCiudad(aux) < 0) {
+                while (j > 0 && arrCiudad[j - 1].compareToCiudad(aux) > 0) {
                     arrCiudad[j] = arrCiudad[j - 1];
                     j--;
                 }
@@ -100,7 +100,7 @@ public class Ciudad {
             for (i = 1; i < n; i++) {
                 aux = arrCiudad[i];
                 j = i;
-                while (j > 0 && arrCiudad[j - 1].compareToCiudad(aux) > 0) {
+                while (j > 0 && arrCiudad[j - 1].compareToCiudad(aux) < 0) {
                     arrCiudad[j] = arrCiudad[j - 1];
                     j--;
                 }
