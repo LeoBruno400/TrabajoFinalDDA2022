@@ -41,8 +41,9 @@ public class testCiudad {
     public static void menu(Ciudad[] arrCiudad) {
         Scanner sc = new Scanner(System.in);
         int opNum, cantCiudades, opcionArreglo;
-        boolean opcion, salir = false, incorrecto, incorrecto2;
-        Ciudad[] copy = Ciudad.copiarArreglo(arrCiudad, arrCiudad.length);
+        boolean invalido, salir = false, incorrecto, incorrecto2;
+        // Cargo el arreglo copia por si el usuario omite cargarlo
+        Ciudad[] copy = Ciudad.copiarArreglo(arrCiudad, arrCiudad.length); 
         do {
             System.out.println();
             System.out.println("----------------------------------------Menu----------------------------------------" +
@@ -54,22 +55,25 @@ public class testCiudad {
                     "\n------------------------------------------------------------------------------------\n");
             opNum = sc.nextInt();
             if (opNum == 1 || opNum == 2 || opNum == 3 || opNum == 4 || opNum == 5) {
-                opcion = true;
+                invalido = false;
                 switch (opNum) {
                     case 1:
                         // Muestra el arreglo original (Segun ciudades.txt)
+                        System.out.println("\nEl arreglo original es:");
                         showArr(arrCiudad);
                         break;
                     case 2:
                         // Copia el arreglo original con menos o igual cantidad de ciudades
-                        System.out.println("¿Cuantas ciudades desea cargar?" +
-                                "\nADVERTENCIA: El numero a ingresar tiene que ser menor a la cantidad de ciudades ya existentes (100max)");
-                        cantCiudades = sc.nextInt();
                         do {
+                            System.out.println("\n¿Cuantas ciudades desea cargar?" +
+                                    "\nADVERTENCIA: El numero a ingresar tiene que ser menor a la cantidad de ciudades ya existentes (100max)\n");
+                            cantCiudades = sc.nextInt();
                             if (cantCiudades <= arrCiudad.length) {
                                 incorrecto = false;
                                 // Hace una copia del arreglo Original
+                                // Los valores de la primera copia se pisan
                                 copy = Ciudad.copiarArreglo(arrCiudad, cantCiudades);
+                                System.out.println("\nEl arreglo con " + cantCiudades + " ciudades es:");
                                 showArr(copy);
                             } else {
                                 incorrecto = true;
@@ -83,15 +87,19 @@ public class testCiudad {
                         showText(copy, letra);
                         break;
                     case 4:
-                        System.out.println("1-Arreglo Original" + "\n2-Arreglo Copia");
-                        opcionArreglo = sc.nextInt();
                         do {
+                            System.out.println("\n1-Arreglo Original" + "\n2-Arreglo Copia\n");
+                            opcionArreglo = sc.nextInt();
                             if (opcionArreglo == 1) {
                                 incorrecto2 = false;
                                 // Dado el nombre de una ciudad generar su abreviatura
+                                System.out.println("\nEl arreglo original es:");
+                                showArr(arrCiudad);
                                 showAbreviaturaNombre(arrCiudad);
                             } else if (opcionArreglo == 2) {
                                 incorrecto2 = false;
+                                System.out.println("\nEl arreglo copia es:");
+                                showArr(copy);
                                 showAbreviaturaNombre(copy);
                             } else {
                                 incorrecto2 = true;
@@ -102,12 +110,14 @@ public class testCiudad {
                     case 5:
                         salir = true;
                         break;
+                    default:
+                        invalido = true;
                 }
             } else {
-                opcion = false;
-                System.out.println("ERROR. NUMERO INVALIDO. Intentelo Nuevamente");
+                invalido = true;
+                System.out.println("\nERROR. NUMERO INVALIDO. Intentelo Nuevamente");
             }
-        } while (opcion && !salir);
+        } while (invalido && salir);
     }
 
     public static String verificacionLetra() {
@@ -116,14 +126,15 @@ public class testCiudad {
         String metodoTipo;
         boolean incorrecto;
         do {
-            System.out.println("Ingrese el metodo de ordenamiento: \n'A' para ordenar de forma asendente."
-                    + "\n'D' para ordenar de forma desendente");
+            System.out.println("\nIngrese el metodo de ordenamiento: \n'A' para ordenar de forma asendente."
+                    + "\n'D' para ordenar de forma desendente\n");
             metodoTipo = sc.next();
-            if (metodoTipo.equalsIgnoreCase("a") || metodoTipo.equalsIgnoreCase("d")) {
+            metodoTipo = metodoTipo.toLowerCase();
+            if (metodoTipo.equals("a") || metodoTipo.equals("d")) {
                 incorrecto = false;
             } else {
                 incorrecto = true;
-                System.out.println("ERROR: CARACTER NO VALIDO. \nIntentelo nuevamente.");
+                System.out.println("\nERROR: CARACTER NO VALIDO. \nIntentelo Nuevamente.");
             }
         } while (incorrecto);
         return metodoTipo;
@@ -131,10 +142,10 @@ public class testCiudad {
 
     public static void showText(Ciudad[] arrCiudad, String letra) {
         if (letra.equalsIgnoreCase("a")) {
-            System.out.println("\nEl arreglo ordenado de forma asendente es:" + "\n");
+            System.out.println("\nEl arreglo ordenado de forma asendente es:");
             showArr(arrCiudad);
         } else {
-            System.out.println("\nEl arreglo ordenado de forma desendente es:" + "\n");
+            System.out.println("\nEl arreglo ordenado de forma desendente es:");
             showArr(arrCiudad);
         }
     }
@@ -147,34 +158,40 @@ public class testCiudad {
 
         do {
             do {
-                System.out
-                        .println("Ingrese el numero de la ciudad que desea abreviar, segun su posicion en el arreglo");
-                numUsuario = sc.nextInt() - 1;
+                System.out.println("\nIngrese el numero de la ciudad que desea abreviar, segun su posicion en el arreglo\n");
+                numUsuario = sc.nextInt() - 1; // ´Para lo que el usuario es posicion 1, para nosotros seria posicion 0
                 if (numUsuario <= longArr) {
                     incorrecto = false;
                     largoPalabra = arrCiudad[numUsuario].getNombre().replaceAll(" ", "").length() - 1;
-                    System.out.println(arrCiudad[numUsuario].abreviatura(largoPalabra));
+                    System.out
+                            .println("\nLa abreviacion es: " + arrCiudad[numUsuario].abreviatura(largoPalabra) + "\n");
                 } else {
                     incorrecto = true;
-                    System.out.println("ERROR: NUMERO INVALIDO. Intentelo Nuevamente.");
+                    System.out.println("\nERROR: NUMERO INVALIDO. Intentelo Nuevamente. \n");
                 }
             } while (incorrecto);
-            System.out.println("¿Desea ingresar otro numero? " + "S/N");
-            letraUsuario = sc.next();
-            if (letraUsuario.equalsIgnoreCase("s")) {
-                seguir = true;
-            } else if (letraUsuario.equalsIgnoreCase("n")) {
-                seguir = false;
-            } else {
-                seguir = true;
-                System.out.println("ERROR: CARACTER INVALIDO. Intentelo Nuevamente.");
-            }
+
+            do {
+                System.out.println("¿Desea ingresar otro  numero? " + "S/N" + "\n");
+                letraUsuario = sc.next();
+                if (letraUsuario.equalsIgnoreCase("s")) {
+                    seguir = false;
+                    incorrecto = true;
+                } else if (letraUsuario.equalsIgnoreCase("n")) {
+                    seguir = false;
+                } else {
+                    seguir = true;
+                    System.out.println("\nERROR: CARACTER INVALIDO. Intentelo Nuevamente.");
+                }
+            } while (seguir);
+
         } while (incorrecto || seguir);
     }
 
     public static void showArr(Ciudad[] arrCiudad) {
         // Muestra el arreglo de ciudades por pantalla
         int longArr = arrCiudad.length;
+        System.out.println();
         for (int i = 0; i < longArr; i++) {
             System.out.println("Posicion: " + (i + 1) + " " + arrCiudad[i].toString());
         }
