@@ -110,14 +110,12 @@ public class testCiudad {
                     case 5:
                         salir = true;
                         break;
-                    default:
-                        invalido = true;
                 }
             } else {
                 invalido = true;
                 System.out.println("\nERROR. NUMERO INVALIDO. Intentelo Nuevamente");
             }
-        } while (invalido && salir);
+        } while (invalido || !salir);
     }
 
     public static String verificacionLetra() {
